@@ -1,0 +1,38 @@
+{
+    "name": "System Process Manager",
+    "version": "1.0.0",
+    "slug": "system_process_manager",
+    "description": "Essential system process and resource management service",
+    "url": "https://github.com/Home-Assistant-OS/system_services/tree/main/system_process_manager",
+    "arch": ["armhf", "armv7", "aarch64", "amd64", "i386"],
+    "startup": "system",
+    "boot": "auto",
+    "host_network": true,
+    "privileged": ["NET_ADMIN", "SYS_ADMIN"],
+    "full_access": true,
+    "options": {
+        "monitoring_interval": 300,
+        "debug_level": "info",
+        "process_monitoring": true,
+        "system_metrics": {
+            "enabled": true,
+            "interval": 60
+        }
+    },
+    "schema": {
+        "monitoring_interval": "int(60,3600)",
+        "debug_level": "list(error|warning|info|debug)",
+        "process_monitoring": "bool",
+        "system_metrics": {
+            "enabled": "bool",
+            "interval": "int(30,300)"
+        }
+    },
+    "init": false,
+    "hassio_api": true,
+    "hassio_role": "admin",
+    "host_pid": true,
+    "apparmor": false,
+    "advanced": true
+}
+  
